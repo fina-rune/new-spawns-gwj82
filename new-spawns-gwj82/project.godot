@@ -22,6 +22,10 @@ SceneLoader="*res://addons/maaacks_game_template/base/scenes/autoloads/scene_loa
 ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_music_controller.tscn"
 ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
@@ -35,3 +39,7 @@ locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/t
 disable_update_check=false
 disable_install_wizard=true
 copy_path="res://examples"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
