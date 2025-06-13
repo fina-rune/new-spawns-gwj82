@@ -19,10 +19,9 @@ New Spawns is a [brief summary of the gameplay — e.g., "2D platformer where cr
 
 1. Clone the repo:
    ```bash
-   git clone git@github.com:fina-rune/new-spawns-gwj82.git
+   git clone git@github.com:your-username/new-spawns-gwj82.git
    cd new-spawns-gwj82
 2. Open the project in Godot 4
-   ```bash
-   Open the project.godot file
-   Hit ▶️ to run!
+      -Open the project.godot file
+      -Hit ▶️ to run!
 
