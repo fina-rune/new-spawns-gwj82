@@ -23,6 +23,7 @@ New Spawns is a [brief summary of the gameplay — e.g., "2D platformer where cr
    cd new-spawns-gwj82
    cd new-spawns-gwj82
 2. Open the project in Godot 4
+   ```bash
       -Open the project.godot file
       -Hit ▶️ to run!
 
