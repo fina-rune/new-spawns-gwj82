@@ -15,11 +15,6 @@ var direction: float
 func _ready() -> void:
 	animation_tree.active = true
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("jump") and is_on_floor():
-		#jump()
-		pass
-
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
