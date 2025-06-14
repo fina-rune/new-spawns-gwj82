@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkhglh7rnk742"]
+
+[ext_resource type="PackedScene" uid="uid://d2wsmsjskfp2c" path="res://scenes/Player/player.tscn" id="1_80bmr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nnsk1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rwgxs"]
+
+[sub_resource type="Environment" id="Environment_nnsk1"]
+background_mode = 3
+adjustment_enabled = true
+adjustment_saturation = 0.01
+
+[node name="World" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(14.4248, 0, 0, 0, 1, 0, 0, 0, 14.4248, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_nnsk1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+shape = SubResource("BoxShape3D_rwgxs")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nnsk1")
+
+[node name="Player" parent="." instance=ExtResource("1_80bmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18502, 1.55451, -4.13415)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.31142)
