@@ -3,7 +3,6 @@ class_name AirState
 extends State
 
 @export var landing_state: State
-@export var move_animation: String = "Move"
 @export var landing_animation: String = "Land"
 
 func state_process(delta: float) -> void:
