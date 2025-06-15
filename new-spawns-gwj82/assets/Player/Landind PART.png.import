@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0m3suto6fili"
-path.s3tc="res://.godot/imported/Player Idle.png-338d33311b32150da0007d338cbe0df2.s3tc.ctex"
+uid="uid://c4xaql2be62y2"
+path.s3tc="res://.godot/imported/Landind PART.png-c4855e854d5119934ee4a4b8d948668d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Player/Player Idle.png"
-dest_files=["res://.godot/imported/Player Idle.png-338d33311b32150da0007d338cbe0df2.s3tc.ctex"]
+source_file="res://assets/Player/Landind PART.png"
+dest_files=["res://.godot/imported/Landind PART.png-c4855e854d5119934ee4a4b8d948668d.s3tc.ctex"]
 
 [params]
 

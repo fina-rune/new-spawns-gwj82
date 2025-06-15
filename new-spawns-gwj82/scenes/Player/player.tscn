@@ -1,11 +1,12 @@
-[gd_scene load_steps=28 format=3 uid="uid://d2wsmsjskfp2c"]
+[gd_scene load_steps=29 format=3 uid="uid://d2wsmsjskfp2c"]
 
 [ext_resource type="Script" uid="uid://c81rfstmsa70v" path="res://scripts/Player/player.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://d0m3suto6fili" path="res://assets/Player/Player Idle.png" id="2_dl1wr"]
-[ext_resource type="Texture2D" uid="uid://bfmaegk1pva8q" path="res://assets/knight.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://4d4hvt0xp3s7" path="res://assets/Player/Idle sheet.png" id="2_wwtew"]
 [ext_resource type="Script" uid="uid://b8flrilqm4o0b" path="res://scripts/Player/state_machine.gd" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://75p8y6m64318" path="res://assets/Player/Jump PART.png" id="3_uxo23"]
 [ext_resource type="Script" uid="uid://rprkrhabbt5k" path="res://scripts/Player/ground_state.gd" id="4_uiqp4"]
-[ext_resource type="Texture2D" uid="uid://cvcm8fr8oljmj" path="res://assets/Player/Player Run Sheet.png" id="4_wwtew"]
+[ext_resource type="Texture2D" uid="uid://c4xaql2be62y2" path="res://assets/Player/Landind PART.png" id="4_uxo23"]
+[ext_resource type="Texture2D" uid="uid://bonk3avooe16v" path="res://assets/Player/Player Run Sheet.png" id="4_wwtew"]
 [ext_resource type="Script" uid="uid://cj0140y643jkg" path="res://scripts/Player/air_state.gd" id="5_hvfru"]
 [ext_resource type="Script" uid="uid://bxgadqxrxt01x" path="res://scripts/Player/landing_state.gd" id="6_hvfru"]
 [ext_resource type="Script" uid="uid://dbea2ta3ssmai" path="res://scripts/Player/state_debug_label.gd" id="7_a06cl"]
@@ -76,7 +77,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dl1wr")]
+"values": [ExtResource("2_wwtew")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -117,7 +118,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_uxo23"]
 resource_name = "jump"
-length = 0.1
+length = 0.3
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -129,7 +130,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_g2els")]
+"values": [ExtResource("3_uxo23")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -141,7 +142,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [3]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -153,7 +154,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [1]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -162,10 +163,10 @@ tracks/3/path = NodePath("Sprite3D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [2]
+"values": [0, 1, 2]
 }
 
 [sub_resource type="Animation" id="Animation_wwtew"]
@@ -182,7 +183,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_g2els")]
+"values": [ExtResource("4_uxo23")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -194,7 +195,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [2]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -206,7 +207,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [1]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -215,10 +216,10 @@ tracks/3/path = NodePath("Sprite3D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [20]
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_dqkch"]
@@ -381,5 +382,7 @@ grow_horizontal = 2
 text = "State:"
 script = ExtResource("7_a06cl")
 state_machine = NodePath("../StateMachine")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
 
 [connection signal="animation_finished" from="AnimationTree" to="StateMachine/Landing" method="_on_animation_tree_animation_finished"]

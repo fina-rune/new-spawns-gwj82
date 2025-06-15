@@ -8,12 +8,18 @@ extends CharacterBody3D
 
 
 @export var speed: float = 5.0
-@export var air_control: float = 0.3
+@export var air_control: float = 0.01
+
+signal callout_pressed
 
 var direction: float
 
 func _ready() -> void:
 	animation_tree.active = true
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("callout"):
+		callout_pressed.emit()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -23,8 +29,9 @@ func _physics_process(delta: float) -> void:
 	
 	var control: float = 1.0 if is_on_floor() else air_control
 	if direction and state_machine.can_player_move():
-		var target_velocity: float = direction * speed
-		velocity.x = lerp(velocity.x, target_velocity, control)
+		#var target_velocity: float = direction * speed
+		#velocity.x = lerp(velocity.x, target_velocity, control)
+		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
