@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfmaegk1pva8q"
-path="res://.godot/imported/knight.png-b33800fb7ddfd7bcabc4517f1e9e68e8.ctex"
+uid="uid://75p8y6m64318"
+path.s3tc="res://.godot/imported/Jump PART.png-1055d75aa6bcb84d1bda31e63aa68229.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://assets/knight.png"
-dest_files=["res://.godot/imported/knight.png-b33800fb7ddfd7bcabc4517f1e9e68e8.ctex"]
+source_file="res://assets/Player/Jump PART.png"
+dest_files=["res://.godot/imported/Jump PART.png-1055d75aa6bcb84d1bda31e63aa68229.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

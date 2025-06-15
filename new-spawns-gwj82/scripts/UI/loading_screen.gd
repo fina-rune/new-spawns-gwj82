@@ -1,11 +1,12 @@
 extends CanvasLayer
 
+@export var scene_name: String
+
 var progress: Array = []
-var scene_name: String
 var scene_load_status: int = 0
 
 func _ready() -> void:
-	scene_name = "res://scenes/Levels/world.tscn"
+	scene_name = "res://scenes/Levels/testing_world.tscn"
 	ResourceLoader.load_threaded_request(scene_name)
 
 
