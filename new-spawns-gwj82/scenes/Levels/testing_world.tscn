@@ -35,3 +35,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.93309)
 
 [node name="WallObstacle" parent="." instance=ExtResource("2_cuudh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59803, 1.83239, -4.13415)
+
+[node name="DialogCanvas" type="CanvasLayer" parent="."]
+
+[node name="DialogPanel" type="Panel" parent="DialogCanvas"]
+visible = false
+offset_left = 454.0
+offset_top = 448.0
+offset_right = 494.0
+offset_bottom = 488.0
+scale = Vector2(6.68, 3.52)
+
+[node name="DialogLabel" type="Label" parent="DialogCanvas/DialogPanel"]
+layout_mode = 0
+offset_left = 7.03593
+offset_top = 11.6477
+offset_right = 59.0359
+offset_bottom = 34.6477
+scale = Vector2(0.520958, 1)
+text = "hello..."
