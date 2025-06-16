@@ -4,7 +4,7 @@ extends State
 @export var ground_state: State
 
 func on_enter() -> void:
-	player.callout_pressed.emit()
+	SignalBus.callout_connected.emit()
 
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
