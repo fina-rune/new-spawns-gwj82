@@ -3,11 +3,6 @@ extends Area3D
 
 @onready var player: Player
 
-func _ready() -> void:
-	# Connect signals so that Godot calls your functions
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
-
 func trigger() -> void:
 	pass
 
