@@ -24,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		
 	current_state.state_process(delta)
 
+
 func can_player_move() -> bool:
 	return current_state.can_move
 

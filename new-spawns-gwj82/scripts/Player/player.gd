@@ -13,6 +13,7 @@ extends CharacterBody3D
 signal callout_pressed
 
 var direction: float
+var is_near_collectible: bool = false
 
 func _ready() -> void:
 	animation_tree.active = true
