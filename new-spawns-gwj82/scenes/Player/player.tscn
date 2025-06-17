@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://bxgadqxrxt01x" path="res://scripts/Player/landing_state.gd" id="6_hvfru"]
 [ext_resource type="Script" uid="uid://dbea2ta3ssmai" path="res://scripts/Player/state_debug_label.gd" id="7_a06cl"]
 [ext_resource type="Script" uid="uid://bgrkm7wqjc4va" path="res://scripts/Player/callout_state.gd" id="10_n7rn1"]
-[ext_resource type="Script" path="res://scripts/Player/dialogue_state.gd" id="12_jxtnq"]
+[ext_resource type="Script" uid="uid://d03ind7yaqeka" path="res://scripts/Player/dialogue_state.gd" id="12_jxtnq"]
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -452,13 +452,14 @@ can_move = false
 
 [node name="Callout" type="Node" parent="StateMachine" node_paths=PackedStringArray("ground_state", "dialogue_state")]
 script = ExtResource("10_n7rn1")
-can_move = false
 ground_state = NodePath("../Ground")
 dialogue_state = NodePath("../Dialogue")
+can_move = false
 
-[node name="Dialogue" type="Node" parent="StateMachine" node_paths=PackedStringArray("ground_state")]
+[node name="Dialogue" type="Node" parent="StateMachine" node_paths=PackedStringArray("ground_state", "dialog_panel")]
 script = ExtResource("12_jxtnq")
 ground_state = NodePath("../Ground")
+dialog_panel = NodePath("")
 can_move = false
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]

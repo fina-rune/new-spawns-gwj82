@@ -23,6 +23,7 @@ buses/default_bus_layout="res://audio_bus/audio_bus.tres"
 
 SignalBus="*res://scripts/Signals/signal_bus.gd"
 MusicManager="*res://scripts/Music/music_manager.gd"
+LevelState="*res://scripts/Player/level_state.gd"
 
 [debug]
 

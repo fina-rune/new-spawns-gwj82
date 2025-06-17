@@ -1,0 +1,48 @@
+{
+  "level1": {
+    "npc": {
+      "sprite": "res://assets/Npc/NPC 1 Idle.png",
+      "dialogue_by_item_count": {
+        "0": [
+          "You: I know you are suffering... please let me help you!",
+          "Stranger: Go away... I don't want to disappoint anyone anymore."
+        ],
+        "1": [
+          "You: Please... I know it's difficult. I found something that could help!",
+          "Stranger: No, I only end up disappointing everyone. I will never matter to my family."
+        ],
+        "2": [
+          "You: Your work matters. Your effort matters. This should help guide you.",
+          "Stranger: I...I want to believe...it's just so hard."
+        ],
+        "3": [
+          "You: I found the missing pieces. Come with me now, I believe in you!",
+          "Friend: I'm sorry for making it so difficult, thank you for showing me that I matter."
+        ]
+      }
+    }
+  },
+  "level2": {
+    "npc": {
+      "sprite": "res://assets/Npc/NPC 2 Idle.png",
+      "dialogue_by_item_count": {
+        "0": [
+          "You: I know you are suffering... please let me help you!",
+          "Stranger: Go away... I don't want to disappoint anyone anymore."
+        ],
+        "1": [
+          "You: Please... I know it's difficult. I found something that could help!",
+          "Stranger: No, I only end up disappointing everyone. I will never matter to my family."
+        ],
+        "2": [
+          "You: Your work matters. Your effort matters. This should help guide you.",
+          "Stranger: I...I want to believe...it's just so hard."
+        ],
+        "3": [
+          "You: I found the missing pieces. Come with me now, I believe in you!",
+          "Friend: I'm sorry for making it so difficult, thank you for showing me that I matter."
+        ]
+      }
+    }
+  }
+}

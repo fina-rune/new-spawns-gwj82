@@ -7,6 +7,7 @@ var scene_load_status: int = 0
 
 func _ready() -> void:
 	scene_name = "res://scenes/Levels/level_1.tscn"
+	LevelState.current_level_id = "level1"
 	ResourceLoader.load_threaded_request(scene_name)
 
 
