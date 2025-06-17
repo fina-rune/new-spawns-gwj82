@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkhglh7rnk742"]
+[gd_scene load_steps=7 format=3 uid="uid://bkhglh7rnk742"]
 
 [ext_resource type="PackedScene" uid="uid://d2wsmsjskfp2c" path="res://scenes/Player/player.tscn" id="1_cuudh"]
-[ext_resource type="AudioStream" uid="uid://bhr6iuq6xoxot" path="res://assets/Audio/NewSpawns-Unseen-level 1 v1 with tail.wav" id="3_r76f3"]
 [ext_resource type="PackedScene" uid="uid://w2fdqspnu0o4" path="res://scenes/Items/item_base.tscn" id="3_w28qs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nnsk1"]
@@ -36,11 +35,6 @@ item_counter_label = NodePath("../InventoryCanvas/InventoryPanel/InventoryLabel"
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.93309)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(576, 320)
-stream = ExtResource("3_r76f3")
-autoplay = true
 
 [node name="ItemBase" parent="." instance=ExtResource("3_w28qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59803, 1.1177, -4.13415)
