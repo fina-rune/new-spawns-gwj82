@@ -1,5 +1,8 @@
 extends CenterContainer
 
+func _ready() -> void:
+	var stream: AudioStream = preload("res://assets/Audio/NewSpawns-Unseen-level 1 v1 with tail.wav")
+	MusicManager.play_music(stream)
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
