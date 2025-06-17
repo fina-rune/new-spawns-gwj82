@@ -16,19 +16,21 @@ func _ready() -> void:
 	animation_tree.active = true
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if state_machine.can_player_move():
+		if not is_on_floor():
+			velocity += get_gravity() * delta
 
-	direction = Input.get_axis("move_left", "move_right")	
-	
-	var control: float = 1.0 if is_on_floor() else air_control
-	if direction and state_machine.can_player_move():
-		var target_velocity: float = direction * speed
-		velocity.x = lerp(velocity.x, target_velocity, control)
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+		direction = Input.get_axis("move_left", "move_right")	
+		
+		var control: float = 1.0 if is_on_floor() else air_control
+		if direction:
+			var target_velocity: float = direction * speed
+			velocity.x = lerp(velocity.x, target_velocity, control)
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
 
-	move_and_slide()
+		move_and_slide()
+		
 	update_animation()
 	update_facing_direction()
 

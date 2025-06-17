@@ -31,13 +31,15 @@ func trigger() -> void:
 		animation_player.play("warp_out")
 
 func _on_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
+	if (body.is_in_group("player") 
+	and body.has_method("set_overlapped_item")):
 		SignalBus.callout_connected.connect(trigger)
 		body.set_overlapped_item(self)
 
 
 func _on_body_exited(body: Node3D) -> void:
 	if (body.is_in_group("player") 
+	and body.has_method("set_overlapped_item")
 	and SignalBus.callout_connected.is_connected(trigger)):
 		SignalBus.callout_connected.disconnect(trigger)
 		body.set_overlapped_item(null)
