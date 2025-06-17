@@ -8,10 +8,10 @@ var player: CharacterBody3D
 var next_state: State
 var playback : AnimationNodeStateMachinePlayback
 
-func state_process(delta: float) -> void:
+func state_process(_delta: float) -> void:
 	pass
 
-func state_input(event: InputEvent) -> void:
+func state_input(_event: InputEvent) -> void:
 	pass
 
 func on_enter() -> void:

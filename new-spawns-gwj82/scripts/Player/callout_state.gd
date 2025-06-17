@@ -6,12 +6,13 @@ extends State
 @export var dialogue_state: State
 
 func on_enter() -> void:
-	if player.is_near_collectible:
-		print("Collecting item...")
-		player.callout_pressed.emit()
+	if player.overlapped_item:
+		SignalBus.callout_connected.emit()
 	else:
+		print("Made it here.")
 		next_state = dialogue_state
 		playback.travel(dialogue_animation_name)
+
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == callout_animation:

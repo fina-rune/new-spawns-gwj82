@@ -5,7 +5,7 @@ extends State
 @export var landing_state: State
 @export var landing_animation: String = "Land"
 
-func state_process(delta: float) -> void:
+func state_process(_delta: float) -> void:
 	if player.is_on_floor():
 		next_state = landing_state
 		
