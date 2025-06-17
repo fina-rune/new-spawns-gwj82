@@ -5,8 +5,9 @@ extends CharacterBody3D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var player_sprite: Sprite3D = $Sprite3D
 @onready var state_machine: StateMachine = $StateMachine
-@onready var item_counter_label: RichTextLabel = $"../InventoryCanvas/InventoryPanel/InventoryLabel"
 
+
+@export var item_counter_label: RichTextLabel
 @export var speed: float = 5.0
 @export var air_control: float = 0.01
 

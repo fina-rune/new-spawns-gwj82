@@ -30,8 +30,9 @@ shape = SubResource("BoxShape3D_rwgxs")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nnsk1")
 
-[node name="Player" parent="." instance=ExtResource("1_cuudh")]
+[node name="Player" parent="." node_paths=PackedStringArray("item_counter_label") instance=ExtResource("1_cuudh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18502, 6.80564, -4.13415)
+item_counter_label = NodePath("../InventoryCanvas/InventoryPanel/InventoryLabel")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.93309)
@@ -41,7 +42,7 @@ position = Vector2(576, 320)
 stream = ExtResource("3_r76f3")
 autoplay = true
 
-[node name="ItemBase" parent="." groups=["collectibles"] instance=ExtResource("3_w28qs")]
+[node name="ItemBase" parent="." instance=ExtResource("3_w28qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59803, 1.1177, -4.13415)
 collision_shape_scale = Vector3(2, 2, 2)
 
