@@ -41,7 +41,7 @@ position = Vector2(576, 320)
 stream = ExtResource("3_r76f3")
 autoplay = true
 
-[node name="ItemBase" parent="." instance=ExtResource("3_w28qs")]
+[node name="ItemBase" parent="." groups=["collectibles"] instance=ExtResource("3_w28qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59803, 1.1177, -4.13415)
 collision_shape_scale = Vector3(2, 2, 2)
 
@@ -68,3 +68,19 @@ grow_vertical = 0
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Hello..."
+
+[node name="InventoryCanvas" type="CanvasLayer" parent="."]
+
+[node name="InventoryPanel" type="Panel" parent="InventoryCanvas"]
+offset_left = 31.0
+offset_top = 31.0
+offset_right = 71.0
+offset_bottom = 71.0
+
+[node name="InventoryLabel" type="RichTextLabel" parent="InventoryCanvas/InventoryPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "0/3"
+horizontal_alignment = 1
+vertical_alignment = 1

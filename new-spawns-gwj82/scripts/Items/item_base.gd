@@ -10,6 +10,7 @@ extends Area3D
 
 var running_time: float = 0.0
 var previous_y_offset: float = 0.0
+signal item_collected
 
 func _ready() -> void:
 	collision_shape.scale = collision_shape_scale
@@ -29,6 +30,9 @@ func _process(delta: float) -> void:
 func trigger() -> void:
 	if animation_player:
 		animation_player.play("warp_out")
+		item_collected.emit()
+		await animation_player.animation_finished
+		queue_free()
 
 func _on_body_entered(body: Node3D) -> void:
 	if (body.is_in_group("player") 
