@@ -6,14 +6,25 @@ extends CharacterBody3D
 @onready var player_sprite: Sprite3D = $Sprite3D
 @onready var state_machine: StateMachine = $StateMachine
 
+
+@export var item_counter_label: RichTextLabel
 @export var speed: float = 5.0
 @export var air_control: float = 0.01
 
 var direction: float
 var overlapped_item: ItemBase
+var collected_items: int = 0
+var total_items: int = 0
+
 
 func _ready() -> void:
 	animation_tree.active = true
+	var items: Array[Node] = get_tree().get_nodes_in_group("collectibles")
+	total_items = items.size()
+	update_inventory_label()
+
+	for item: ItemBase in items:
+		item.item_collected.connect(on_item_collected)
 
 func _physics_process(delta: float) -> void:
 	if state_machine.can_player_move():
@@ -45,3 +56,10 @@ func update_facing_direction() -> void:
 
 func set_overlapped_item(item: ItemBase) -> void:
 	overlapped_item = item
+
+func on_item_collected() -> void:
+	collected_items += 1
+	update_inventory_label()
+
+func update_inventory_label() -> void:
+	item_counter_label.text = "%d/%d" % [collected_items, total_items]
