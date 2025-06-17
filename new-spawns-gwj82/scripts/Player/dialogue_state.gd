@@ -1,3 +1,4 @@
+class_name DialogueState
 extends State
 
 @export var ground_state: State

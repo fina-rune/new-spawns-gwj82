@@ -1,3 +1,4 @@
+class_name CalloutState
 extends State
 
 @export var callout_animation: String = "callout"
