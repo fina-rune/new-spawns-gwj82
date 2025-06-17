@@ -95,5 +95,5 @@ text = "0/3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Npc1" parent="." instance=ExtResource("3_3ydyl")]
+[node name="Npc" parent="." instance=ExtResource("3_3ydyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.9831, 1.36021, -4.134)
