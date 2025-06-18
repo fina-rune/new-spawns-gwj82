@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjkluw6wd1ts1"]
+
+[ext_resource type="Shader" uid="uid://dkcw1w040nqm7" path="res://starrysky.gdshader" id="1_6nu5j"]
+[ext_resource type="Material" uid="uid://d37eemdyowd4w" path="res://wallmaterial.tres" id="2_xpy4v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vonw3"]
+shader = ExtResource("1_6nu5j")
+shader_parameter/vertical_sections = 21
+shader_parameter/star_size = 0.08
+shader_parameter/star_falloff = 4.0
+shader_parameter/margin = 0.05
+
+[sub_resource type="Sky" id="Sky_0b4ue"]
+sky_material = SubResource("ShaderMaterial_vonw3")
+
+[sub_resource type="Environment" id="Environment_5xgho"]
+background_mode = 2
+background_energy_multiplier = 0.07
+sky = SubResource("Sky_0b4ue")
+fog_mode = 1
+fog_density = 2.8495
+fog_depth_curve = 0.188203
+fog_depth_begin = 3967.8
+fog_depth_end = 3967.8
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.057
+volumetric_fog_albedo = Color(0.47451, 0.611765, 0.921569, 1)
+volumetric_fog_emission = Color(0.541176, 0.690196, 0.945098, 1)
+volumetric_fog_detail_spread = 0.5
+adjustment_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gxsa"]
+albedo_color = Color(0.5018, 0.752442, 0.968755, 1)
+
+[node name="blue" type="Node3D"]
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
+environment = SubResource("Environment_5xgho")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 0.789256, 0.614065, 0, -0.614065, 0.789256, 0, 2.19336, 4.27362)
+light_color = Color(0.960784, 0.8, 0.976471, 1)
+light_volumetric_fog_energy = 1.545
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Level"]
+transform = Transform3D(1.00208, 0, 0, 0, 1.00208, 0, 0, 0, 1.00208, 0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1.00684, 0, 0, 0, 1.00684, 0, 0, 0, 1.00684, -172.442, 26.1923, -52.3729)
+size = Vector3(285.624, 73.278, 59.564)
+material = ExtResource("2_xpy4v")
+
+[node name="floor" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00604517, 0.140044, 0.0897107)
+size = Vector3(229.209, 0.0537109, 193.624)
+material = SubResource("StandardMaterial3D_8gxsa")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1.03296, 0, -0.0292369, 0, 1.43104, 0, 0.0132336, 0, 2.28211, -77.0057, 5.25619, 28.3504)
+size = Vector3(94.9756, 16.1289, 9.64258)
+material = ExtResource("2_xpy4v")
+
+[node name="wall" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(0.999975, 0, 0, 0, 0.999975, 0, 0, 0, 0.999975, -53.3934, 21.3625, -62.5872)
+visible = false
+size = Vector3(7.02136, 120.679, 403.092)
+
+[node name="Camera3D" type="Camera3D" parent="Level"]
+transform = Transform3D(0.0493869, -0.170674, 0.984089, 0.00855457, 0.985328, 0.170459, -0.998743, 3.91246e-09, 0.0501223, 1.84582, 0.586233, -0.167875)
