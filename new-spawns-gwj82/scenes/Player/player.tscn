@@ -389,27 +389,27 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jxtnq"]
 advance_mode = 2
-advance_condition = &"callout"
+advance_expression = "callout"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t6q27"]
 switch_mode = 2
 advance_mode = 2
-advance_condition = &"move"
+advance_expression = "move"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wyey8"]
 switch_mode = 2
 advance_mode = 2
-advance_condition = &"dialogue"
+advance_expression = "dialogue"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1bwnf"]
 advance_mode = 2
-advance_condition = &"move"
+advance_expression = "move"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qhqgy"]
 states/Callout/node = SubResource("AnimationNodeAnimation_7tfl1")
 states/Callout/position = Vector2(545, 225)
 states/Dialogue/node = SubResource("AnimationNodeAnimation_jxtnq")
-states/Dialogue/position = Vector2(712, 225)
+states/Dialogue/position = Vector2(713.214, 223.474)
 states/Jump/node = SubResource("AnimationNodeAnimation_a06cl")
 states/Jump/position = Vector2(543, -30)
 states/Land/node = SubResource("AnimationNodeAnimation_wwtew")
@@ -417,7 +417,7 @@ states/Land/position = Vector2(712, 100)
 states/Move/node = SubResource("AnimationNodeBlendSpace1D_3vyb7")
 states/Move/position = Vector2(543, 100)
 transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_g2els"), "Move", "Jump", SubResource("AnimationNodeStateMachineTransition_dl1wr"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_uxo23"), "Land", "Move", SubResource("AnimationNodeStateMachineTransition_n7rn1"), "Move", "Callout", SubResource("AnimationNodeStateMachineTransition_jxtnq"), "Callout", "Move", SubResource("AnimationNodeStateMachineTransition_t6q27"), "Callout", "Dialogue", SubResource("AnimationNodeStateMachineTransition_wyey8"), "Dialogue", "Move", SubResource("AnimationNodeStateMachineTransition_1bwnf")]
-graph_offset = Vector2(372.429, 65.2952)
+graph_offset = Vector2(372.429, 45.4484)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
 
@@ -437,9 +437,6 @@ active = false
 tree_root = SubResource("AnimationNodeStateMachine_qhqgy")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/callout = false
-parameters/conditions/dialogue = false
-parameters/conditions/move = false
 parameters/Move/blend_position = -0.00149256
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

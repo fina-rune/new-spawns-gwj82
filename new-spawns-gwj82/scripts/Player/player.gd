@@ -12,9 +12,15 @@ extends CharacterBody3D
 @export var air_control: float = 0.01
 
 var direction: float
+
 var overlapped_item: ItemBase
+
 var collected_items: int = 0
 var total_items: int = 0
+
+var callout: bool = false
+var dialogue: bool = false
+var move: bool = false
 
 
 func _ready() -> void:

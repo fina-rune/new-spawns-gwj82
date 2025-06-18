@@ -7,7 +7,7 @@ extends State
 @export var callout_state: State
 
 func enter() -> void:
-	animation_tree.set("parameters/conditions/move", false)
+	character.move = false
 
 func physics_update(_delta: float) -> void:
 	if not character.is_on_floor():
@@ -19,4 +19,4 @@ func physics_update(_delta: float) -> void:
 		
 	if Input.is_action_just_pressed("callout"):
 		Transitioned.emit(self, callout_state.name)
-		animation_tree.set("parameters/conditions/callout", true)
+		character.callout = true

@@ -6,7 +6,7 @@ extends State
 var dialog_panel: Control
 
 func enter() -> void:
-	animation_tree.set("parameters/conditions/dialogue", false)
+	character.dialogue = false
 	print("Showing dialogue")
 	dialog_panel = get_node("/root/World/DialogCanvas/DialogPanel")
 	if dialog_panel:
@@ -19,4 +19,4 @@ func physics_update(_delta: float) -> void:
 			print("Hiding dialog...")
 			dialog_panel.visible = false
 			Transitioned.emit(self, ground_state.name)
-			animation_tree.set("parameters/conditions/move", true)
+			character.move = true
