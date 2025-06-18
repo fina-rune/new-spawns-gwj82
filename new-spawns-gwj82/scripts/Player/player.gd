@@ -4,7 +4,7 @@ extends CharacterBody3D
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var player_sprite: Sprite3D = $Sprite3D
-@onready var state_machine: StateMachine = $StateMachine
+@onready var state_machine: StateMachine = $"State Machine"
 
 
 @export var item_counter_label: RichTextLabel
@@ -27,7 +27,7 @@ func _ready() -> void:
 		item.item_collected.connect(on_item_collected)
 
 func _physics_process(delta: float) -> void:
-	if state_machine.can_player_move():
+	if state_machine.can_character_move():
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 

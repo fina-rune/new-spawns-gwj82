@@ -8,4 +8,4 @@ extends State
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == landing_animation_name:
-		next_state = ground_state
+		Transitioned.emit(self, ground_state.name)

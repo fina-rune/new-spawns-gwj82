@@ -2,21 +2,21 @@ class_name DialogueState
 extends State
 
 @export var ground_state: State
-@export var ground_animation_name: String = "Move"
 
 var dialog_panel: Control
 
-func on_enter() -> void:
+func enter() -> void:
+	animation_tree.set("parameters/conditions/dialogue", false)
 	print("Showing dialogue")
 	dialog_panel = get_node("/root/World/DialogCanvas/DialogPanel")
 	if dialog_panel:
 		dialog_panel.visible = true
 
-func state_input(event: InputEvent) -> void:
-	if event.is_action_pressed("callout"):
+func physics_update(_delta: float) -> void:
+	if Input.is_action_pressed("callout"):
 		print("Showing/hiding dialog...")
 		if dialog_panel:
 			print("Hiding dialog...")
 			dialog_panel.visible = false
-			next_state = ground_state
-			playback.travel(ground_animation_name)
+			Transitioned.emit(self, ground_state.name)
+			animation_tree.set("parameters/conditions/move", true)

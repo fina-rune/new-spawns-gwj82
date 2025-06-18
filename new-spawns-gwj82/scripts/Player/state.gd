@@ -1,21 +1,21 @@
+class_name State
 extends Node
 
-class_name State
+signal Transitioned
 
 @export var can_move: bool = true
 
-var player: CharacterBody3D
-var next_state: State
-var playback : AnimationNodeStateMachinePlayback
+var animation_tree: AnimationTree
+var character: CharacterBody3D
 
-func state_process(_delta: float) -> void:
+func enter() -> void:
 	pass
-
-func state_input(_event: InputEvent) -> void:
+	
+func exit() -> void:
 	pass
-
-func on_enter() -> void:
+	
+func update(_delta: float) -> void:
 	pass
-
-func on_exit() -> void:
+	
+func physics_update(_delta: float) -> void:
 	pass

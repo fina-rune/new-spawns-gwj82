@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://bxgadqxrxt01x" path="res://scripts/Player/landing_state.gd" id="6_hvfru"]
 [ext_resource type="Script" uid="uid://dbea2ta3ssmai" path="res://scripts/Player/state_debug_label.gd" id="7_a06cl"]
 [ext_resource type="Script" uid="uid://bgrkm7wqjc4va" path="res://scripts/Player/callout_state.gd" id="10_n7rn1"]
-[ext_resource type="Script" path="res://scripts/Player/dialogue_state.gd" id="12_jxtnq"]
+[ext_resource type="Script" uid="uid://d03ind7yaqeka" path="res://scripts/Player/dialogue_state.gd" id="12_jxtnq"]
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -376,23 +376,34 @@ blend_mode = 1
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dl1wr"]
+advance_mode = 2
+advance_expression = "velocity.y > 0 or not is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uxo23"]
+advance_mode = 2
+advance_expression = "is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n7rn1"]
 switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jxtnq"]
+advance_mode = 2
+advance_condition = &"callout"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t6q27"]
 switch_mode = 2
 advance_mode = 2
+advance_condition = &"move"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wyey8"]
 switch_mode = 2
+advance_mode = 2
+advance_condition = &"dialogue"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1bwnf"]
+advance_mode = 2
+advance_condition = &"move"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qhqgy"]
 states/Callout/node = SubResource("AnimationNodeAnimation_7tfl1")
@@ -406,7 +417,7 @@ states/Land/position = Vector2(712, 100)
 states/Move/node = SubResource("AnimationNodeBlendSpace1D_3vyb7")
 states/Move/position = Vector2(543, 100)
 transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_g2els"), "Move", "Jump", SubResource("AnimationNodeStateMachineTransition_dl1wr"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_uxo23"), "Land", "Move", SubResource("AnimationNodeStateMachineTransition_n7rn1"), "Move", "Callout", SubResource("AnimationNodeStateMachineTransition_jxtnq"), "Callout", "Move", SubResource("AnimationNodeStateMachineTransition_t6q27"), "Callout", "Dialogue", SubResource("AnimationNodeStateMachineTransition_wyey8"), "Dialogue", "Move", SubResource("AnimationNodeStateMachineTransition_1bwnf")]
-graph_offset = Vector2(204, -26)
+graph_offset = Vector2(372.429, 65.2952)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
 
@@ -422,41 +433,46 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 tree_root = SubResource("AnimationNodeStateMachine_qhqgy")
+advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/callout = false
+parameters/conditions/dialogue = false
+parameters/conditions/move = false
 parameters/Move/blend_position = -0.00149256
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.6, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_g2els")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("player", "current_state", "animation_tree")]
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("animation_tree", "initial_state", "character")]
 script = ExtResource("3_qhqgy")
-player = NodePath("..")
-current_state = NodePath("Ground")
 animation_tree = NodePath("../AnimationTree")
+initial_state = NodePath("Ground")
+character = NodePath("..")
 
-[node name="Ground" type="Node" parent="StateMachine" node_paths=PackedStringArray("air_state", "callout_state")]
+[node name="Ground" type="Node" parent="State Machine" node_paths=PackedStringArray("air_state", "callout_state")]
 script = ExtResource("4_uiqp4")
 air_state = NodePath("../Air")
 callout_state = NodePath("../Callout")
 
-[node name="Air" type="Node" parent="StateMachine" node_paths=PackedStringArray("landing_state")]
+[node name="Air" type="Node" parent="State Machine" node_paths=PackedStringArray("landing_state")]
 script = ExtResource("5_hvfru")
 landing_state = NodePath("../Landing")
 
-[node name="Landing" type="Node" parent="StateMachine" node_paths=PackedStringArray("ground_state")]
+[node name="Landing" type="Node" parent="State Machine" node_paths=PackedStringArray("ground_state")]
 script = ExtResource("6_hvfru")
 ground_state = NodePath("../Ground")
 can_move = false
 
-[node name="Callout" type="Node" parent="StateMachine" node_paths=PackedStringArray("ground_state", "dialogue_state")]
+[node name="Callout" type="Node" parent="State Machine" node_paths=PackedStringArray("ground_state", "dialogue_state")]
 script = ExtResource("10_n7rn1")
-can_move = false
 ground_state = NodePath("../Ground")
 dialogue_state = NodePath("../Dialogue")
+can_move = false
 
-[node name="Dialogue" type="Node" parent="StateMachine" node_paths=PackedStringArray("ground_state")]
+[node name="Dialogue" type="Node" parent="State Machine" node_paths=PackedStringArray("ground_state")]
 script = ExtResource("12_jxtnq")
 ground_state = NodePath("../Ground")
 can_move = false
@@ -471,9 +487,9 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "State:"
 script = ExtResource("7_a06cl")
-state_machine = NodePath("../StateMachine")
+state_machine = NodePath("../State Machine")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 
-[connection signal="animation_finished" from="AnimationTree" to="StateMachine/Landing" method="_on_animation_tree_animation_finished"]
-[connection signal="animation_finished" from="AnimationTree" to="StateMachine/Callout" method="_on_animation_tree_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree" to="State Machine/Landing" method="_on_animation_tree_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree" to="State Machine/Callout" method="_on_animation_tree_animation_finished"]
