@@ -393,6 +393,7 @@ advance_mode = 2
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1bwnf"]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qhqgy"]
 states/Callout/node = SubResource("AnimationNodeAnimation_7tfl1")
@@ -456,10 +457,9 @@ ground_state = NodePath("../Ground")
 dialogue_state = NodePath("../Dialogue")
 can_move = false
 
-[node name="Dialogue" type="Node" parent="StateMachine" node_paths=PackedStringArray("ground_state", "dialog_panel")]
+[node name="Dialogue" type="Node" parent="StateMachine" node_paths=PackedStringArray("ground_state")]
 script = ExtResource("12_jxtnq")
 ground_state = NodePath("../Ground")
-dialog_panel = NodePath("")
 can_move = false
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]

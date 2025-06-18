@@ -10,7 +10,6 @@ func on_enter() -> void:
 	if player.overlapped_item:
 		SignalBus.callout_connected.emit()
 	else:
-		print("Made it here.")
 		next_state = dialogue_state
 		playback.travel(dialogue_animation_name)
 

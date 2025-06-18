@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkhglh7rnk742"]
+[gd_scene load_steps=8 format=3 uid="uid://bkhglh7rnk742"]
 
 [ext_resource type="PackedScene" uid="uid://d2wsmsjskfp2c" path="res://scenes/Player/player.tscn" id="1_ac15f"]
 [ext_resource type="PackedScene" uid="uid://w2fdqspnu0o4" path="res://scenes/Items/item_base.tscn" id="2_3ydyl"]
 [ext_resource type="PackedScene" uid="uid://ceaquyq8syix2" path="res://scenes/Npc/npc.tscn" id="3_3ydyl"]
-[ext_resource type="PackedScene" uid="uid://kcx2acfw3lim" path="res://scenes/UI/dialog.tscn" id="4_vtxvj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nnsk1"]
 
@@ -77,5 +76,3 @@ vertical_alignment = 1
 
 [node name="Npc" parent="." instance=ExtResource("3_3ydyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.9831, 1.36021, -4.134)
-
-[node name="Dialog" parent="." instance=ExtResource("4_vtxvj")]
