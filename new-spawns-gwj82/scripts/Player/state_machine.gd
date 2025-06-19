@@ -14,7 +14,7 @@ func _ready() -> void:
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.Transitioned.connect(on_child_transition)
-			if character:
+			if character and animation_tree:
 				child.character = character
 				child.animation_tree = animation_tree
 		

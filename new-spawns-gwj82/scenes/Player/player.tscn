@@ -377,7 +377,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dl1wr"]
 advance_mode = 2
-advance_expression = "velocity.y > 0 or not is_on_floor()"
+advance_expression = "not is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uxo23"]
 advance_mode = 2
@@ -391,17 +391,17 @@ advance_mode = 2
 advance_mode = 2
 advance_expression = "callout"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t6q27"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "move"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wyey8"]
 switch_mode = 2
 advance_mode = 2
-advance_expression = "dialogue"
+advance_expression = "not overlapped_item"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1bwnf"]
+advance_mode = 2
+advance_expression = "move"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t6q27"]
+switch_mode = 2
 advance_mode = 2
 advance_expression = "move"
 
@@ -416,8 +416,8 @@ states/Land/node = SubResource("AnimationNodeAnimation_wwtew")
 states/Land/position = Vector2(712, 100)
 states/Move/node = SubResource("AnimationNodeBlendSpace1D_3vyb7")
 states/Move/position = Vector2(543, 100)
-transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_g2els"), "Move", "Jump", SubResource("AnimationNodeStateMachineTransition_dl1wr"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_uxo23"), "Land", "Move", SubResource("AnimationNodeStateMachineTransition_n7rn1"), "Move", "Callout", SubResource("AnimationNodeStateMachineTransition_jxtnq"), "Callout", "Move", SubResource("AnimationNodeStateMachineTransition_t6q27"), "Callout", "Dialogue", SubResource("AnimationNodeStateMachineTransition_wyey8"), "Dialogue", "Move", SubResource("AnimationNodeStateMachineTransition_1bwnf")]
-graph_offset = Vector2(372.429, 45.4484)
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_g2els"), "Move", "Jump", SubResource("AnimationNodeStateMachineTransition_dl1wr"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_uxo23"), "Land", "Move", SubResource("AnimationNodeStateMachineTransition_n7rn1"), "Move", "Callout", SubResource("AnimationNodeStateMachineTransition_jxtnq"), "Callout", "Dialogue", SubResource("AnimationNodeStateMachineTransition_wyey8"), "Dialogue", "Move", SubResource("AnimationNodeStateMachineTransition_1bwnf"), "Callout", "Move", SubResource("AnimationNodeStateMachineTransition_t6q27")]
+graph_offset = Vector2(372.429, 85.142)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
 

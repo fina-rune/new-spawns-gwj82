@@ -6,7 +6,7 @@ extends State
 @export var air_state: State
 @export var callout_state: State
 
-func enter() -> void:
+func exit() -> void:
 	character.move = false
 
 func physics_update(_delta: float) -> void:
