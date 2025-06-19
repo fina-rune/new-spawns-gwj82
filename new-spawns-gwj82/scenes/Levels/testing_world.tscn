@@ -1,7 +1,13 @@
+
 [gd_scene load_steps=7 format=3 uid="uid://bkhglh7rnk742"]
 
 [ext_resource type="PackedScene" uid="uid://d2wsmsjskfp2c" path="res://scenes/Player/player.tscn" id="1_cuudh"]
+
+[ext_resource type="Script" uid="uid://kio3bc1i7d03" path="res://scripts/testing_world.gd" id="1_w28qs"]
+[ext_resource type="PackedScene" uid="uid://do06jyvvfu2mj" path="res://scenes/Hazards/hazard_base.tscn" id="2_cuudh"]
+
 [ext_resource type="PackedScene" uid="uid://w2fdqspnu0o4" path="res://scenes/Items/item_base.tscn" id="3_w28qs"]
+[ext_resource type="PackedScene" uid="uid://cskbp2rhyasqa" path="res://scenes/billboard.tscn" id="5_1so0q"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nnsk1"]
 
@@ -10,11 +16,11 @@
 [sub_resource type="Environment" id="Environment_nnsk1"]
 background_mode = 3
 adjustment_enabled = true
-adjustment_saturation = 0.01
 
 [sub_resource type="BoxMesh" id="BoxMesh_r76f3"]
 
 [node name="World" type="Node3D"]
+script = ExtResource("1_w28qs")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(14.4248, 0, 0, 0, 1, 0, 0, 0, 14.4248, 0, 0, 0)
@@ -30,7 +36,7 @@ shape = SubResource("BoxShape3D_rwgxs")
 environment = SubResource("Environment_nnsk1")
 
 [node name="Player" parent="." node_paths=PackedStringArray("item_counter_label") instance=ExtResource("1_cuudh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18502, 6.80564, -4.13415)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90293, 6.80564, -4.13415)
 item_counter_label = NodePath("../InventoryCanvas/InventoryPanel/InventoryLabel")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
@@ -79,3 +85,22 @@ offset_bottom = 40.0
 text = "0/3"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HazardBase" parent="." node_paths=PackedStringArray("item") instance=ExtResource("2_cuudh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59803, 1.1177, -4.13415)
+item = NodePath("../ItemBase")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HazardBase"]
+mesh = SubResource("BoxMesh_cuudh")
+
+[node name="ItemBase" parent="." instance=ExtResource("3_w28qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53557, 1.1177, -4.13415)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ItemBase"]
+mesh = SubResource("CylinderMesh_r76f3")
+
+[node name="Start" parent="." instance=ExtResource("5_1so0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.37111, 1.14, -2.98893)
+
+[node name="End" parent="." instance=ExtResource("5_1so0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23601, 1.14, -2.98893)
