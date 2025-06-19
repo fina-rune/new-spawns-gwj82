@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkhglh7rnk742"]
+[gd_scene load_steps=9 format=3 uid="uid://bkhglh7rnk742"]
 
 [ext_resource type="PackedScene" uid="uid://d2wsmsjskfp2c" path="res://scenes/Player/player.tscn" id="1_cuudh"]
+[ext_resource type="PackedScene" uid="uid://do06jyvvfu2mj" path="res://scenes/Hazards/hazard_base.tscn" id="2_cuudh"]
 [ext_resource type="PackedScene" uid="uid://w2fdqspnu0o4" path="res://scenes/Items/item_base.tscn" id="3_w28qs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nnsk1"]
@@ -12,7 +13,9 @@ background_mode = 3
 adjustment_enabled = true
 adjustment_saturation = 0.01
 
-[sub_resource type="BoxMesh" id="BoxMesh_r76f3"]
+[sub_resource type="BoxMesh" id="BoxMesh_cuudh"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r76f3"]
 
 [node name="World" type="Node3D"]
 
@@ -35,13 +38,6 @@ item_counter_label = NodePath("../InventoryCanvas/InventoryPanel/InventoryLabel"
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.93309)
-
-[node name="ItemBase" parent="." instance=ExtResource("3_w28qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59803, 1.1177, -4.13415)
-collision_shape_scale = Vector3(2, 2, 2)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ItemBase"]
-mesh = SubResource("BoxMesh_r76f3")
 
 [node name="DialogCanvas" type="CanvasLayer" parent="."]
 
@@ -79,3 +75,16 @@ offset_bottom = 40.0
 text = "0/3"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HazardBase" parent="." node_paths=PackedStringArray("item") instance=ExtResource("2_cuudh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59803, 1.1177, -4.13415)
+item = NodePath("../ItemBase")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HazardBase"]
+mesh = SubResource("BoxMesh_cuudh")
+
+[node name="ItemBase" parent="." instance=ExtResource("3_w28qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53557, 1.1177, -4.13415)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ItemBase"]
+mesh = SubResource("CylinderMesh_r76f3")
