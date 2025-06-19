@@ -47,3 +47,6 @@ func _on_body_exited(body: Node3D) -> void:
 	and SignalBus.callout_connected.is_connected(trigger)):
 		SignalBus.callout_connected.disconnect(trigger)
 		body.set_overlapped_item(null)
+
+func _exit_tree() -> void:
+	SignalBus.item_collected.emit(self)
