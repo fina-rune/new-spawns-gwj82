@@ -24,10 +24,6 @@ buses/default_bus_layout="res://audio_bus/audio_bus.tres"
 SignalBus="*res://scripts/Signals/signal_bus.gd"
 MusicManager="*res://scripts/Music/music_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-AppConfig="*res://addons/maaacks_game_template/base/scenes/autoloads/app_config.tscn"
-SceneLoader="*res://addons/maaacks_game_template/base/scenes/autoloads/scene_loader.tscn"
-ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_music_controller.tscn"
-ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
 
 [debug]
 
@@ -82,10 +78,6 @@ dialogic_default_action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
-
-[internationalization]
-
-locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_game_template/base/translations/menus_translations.fr.translation")
 
 [maaacks_game_template]
 
