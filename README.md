@@ -1,17 +1,17 @@
 # new-spawns-gwj82
 
-# 🎮 New Spawns - [insert game title]
+# 🎮 New Spawns - [Fractured Hearts]
 Entry for Godot Wild Jam #82 - Using Godot 4
 
-**New Spawns** is our entry for [Godot Wild Jam #82](https://itch.io/jam/godot-wild-jam-82), built entirely using **Godot 4**.
+**Fractured Hearts** is our entry for [Godot Wild Jam #82](https://itch.io/jam/godot-wild-jam-82), built entirely using **Godot 4**.
 
-> ✨ **Theme:** [insert jam theme]
+> ✨ **Theme:** [UNSEEN]
 
 ---
 
 ## 🕹️ About the Game
 
-New Spawns is a [brief summary of the gameplay — e.g., "2D platformer where creatures evolve"]. Built from scratch in just a few days, it blends [genre/mechanics] with a touch of [humor/story/atmosphere].
+Built from scratch in just a few days, New Spawns is a modern platformer blending adventure, atmosphere, and heart reaching stories.
 
 ---
 
