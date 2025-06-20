@@ -196,14 +196,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HazardBase" parent="." node_paths=PackedStringArray("item") instance=ExtResource("2_cuudh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3907, 1.1177, -4.13415)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.89742, 1.6847, -4.13415)
 item = NodePath("../ItemBase")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="HazardBase"]
 mesh = SubResource("BoxMesh_cuudh")
 
 [node name="ItemBase" parent="." instance=ExtResource("3_w28qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0706, 1.1177, -4.13415)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64292, 2.13161, -4.13415)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ItemBase"]
 mesh = SubResource("CylinderMesh_r76f3")
@@ -212,4 +212,4 @@ mesh = SubResource("CylinderMesh_r76f3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.679, 1.14, -1.51313)
 
 [node name="End" parent="." instance=ExtResource("4_w28qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.58368, 1.14, -1.51313)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3814, 1.14, -1.51313)
