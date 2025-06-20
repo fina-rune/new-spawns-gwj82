@@ -3,19 +3,20 @@ extends State
 
 @export var ground_state: State
 
-var dialog_panel: Control
-
 func enter() -> void:
-	dialog_panel = get_node("/root/World/DialogCanvas/DialogPanel")
-	if dialog_panel:
-		dialog_panel.visible = true
+	var timeline_map: Dictionary[int, String] = {
+		1: "timeline2",
+		2: "timeline3",
+		3: "timeline4"
+	}
+	var timeline_name: String = timeline_map.get(character.collected_items, "timeline1")
+
+	Dialogic.start(timeline_name)
+	Dialogic.timeline_ended.connect(_on_dialogue_finished, CONNECT_ONE_SHOT)
+
+func _on_dialogue_finished() -> void:
+	character.move = true
+	Transitioned.emit(self, ground_state.name)
 
 func exit() -> void:
 	character.dialogue = false
-
-func physics_update(_delta: float) -> void:
-	if Input.is_action_pressed("callout"):
-		if dialog_panel:
-			dialog_panel.visible = false
-			Transitioned.emit(self, ground_state.name)
-			character.move = true

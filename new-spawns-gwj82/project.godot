@@ -34,7 +34,12 @@ gdscript/warnings/untyped_declaration=2
 directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
-directories/dtl_directory={}
+directories/dtl_directory={
+"timeline1": "res://timelines/timeline1.dtl",
+"timeline2": "res://timelines/timeline2.dtl",
+"timeline3": "res://timelines/timeline3.dtl",
+"timeline4": "res://timelines/timeline4.dtl"
+}
 
 [editor_plugins]
 
