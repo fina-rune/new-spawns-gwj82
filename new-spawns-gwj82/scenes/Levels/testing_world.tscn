@@ -224,4 +224,4 @@ mesh = SubResource("CylinderMesh_r76f3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.679, 1.14, -1.51313)
 
 [node name="End" parent="." instance=ExtResource("4_w28qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3814, 1.14, -1.51313)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.58368, 1.14, -1.51313)
