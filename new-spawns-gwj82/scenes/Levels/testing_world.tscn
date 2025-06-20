@@ -7,10 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://w2fdqspnu0o4" path="res://scenes/Items/item_base.tscn" id="3_w28qs"]
 [ext_resource type="PackedScene" path="res://scenes/billboard.tscn" id="4_w28qs"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_nnsk1"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_rwgxs"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2q3q1"]
 shader = ExtResource("2_x5q3u")
 shader_parameter/vertical_sections = 21
@@ -40,12 +36,19 @@ volumetric_fog_detail_spread = 0.5
 volumetric_fog_temporal_reprojection_enabled = false
 adjustment_enabled = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_nnsk1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rwgxs"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_cuudh"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_r76f3"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_1so0q")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mdonp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(14.4248, 0, 0, 0, 1, 0, 0, 0, 14.4248, 0, 0, 0)
@@ -56,9 +59,6 @@ mesh = SubResource("BoxMesh_nnsk1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 shape = SubResource("BoxShape3D_rwgxs")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_mdonp")
 
 [node name="Player" parent="." node_paths=PackedStringArray("item_counter_label") instance=ExtResource("1_cuudh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18502, 6.80564, -4.13415)
