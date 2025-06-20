@@ -1,13 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://do06jyvvfu2mj"]
+[gd_scene load_steps=2 format=3 uid="uid://do06jyvvfu2mj"]
 
 [ext_resource type="Script" uid="uid://dusjh05i4nl0p" path="res://scripts/Hazards/hazard_base.gd" id="1_72wam"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gfyfi"]
-
 [node name="HazardBase" type="Area3D"]
 script = ExtResource("1_72wam")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_gfyfi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

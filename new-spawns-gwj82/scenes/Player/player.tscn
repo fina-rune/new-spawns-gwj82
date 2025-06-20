@@ -424,6 +424,15 @@ graph_offset = Vector2(372.429, 85.142)
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_3vyb7")
 
+[node name="CameraController" type="Node3D" parent="."]
+top_level = true
+
+[node name="CameraTarget" type="Node3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Camera" type="Camera3D" parent="CameraController/CameraTarget"]
+current = true
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
 texture_filter = 0
 
@@ -433,7 +442,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
 tree_root = SubResource("AnimationNodeStateMachine_qhqgy")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
