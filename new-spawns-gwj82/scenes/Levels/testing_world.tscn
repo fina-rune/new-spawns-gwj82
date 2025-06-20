@@ -203,9 +203,21 @@ item = NodePath("../ItemBase")
 mesh = SubResource("BoxMesh_cuudh")
 
 [node name="ItemBase" parent="." instance=ExtResource("3_w28qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64292, 2.13161, -4.13415)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64292, 1.62632, -4.13415)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ItemBase"]
+mesh = SubResource("CylinderMesh_r76f3")
+
+[node name="ItemBase2" parent="." instance=ExtResource("3_w28qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46061, -2.27753, -4.13415)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ItemBase2"]
+mesh = SubResource("CylinderMesh_r76f3")
+
+[node name="ItemBase3" parent="." instance=ExtResource("3_w28qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0071, -1.01088, -4.13415)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ItemBase3"]
 mesh = SubResource("CylinderMesh_r76f3")
 
 [node name="Start" parent="." instance=ExtResource("4_w28qs")]
