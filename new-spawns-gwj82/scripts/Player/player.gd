@@ -17,6 +17,7 @@ var overlapped_item: ItemBase
 
 var collected_items: int = 0
 var total_items: int = 0
+var dialogue_index: int = 0
 
 var callout: bool = false
 var dialogue: bool = false
