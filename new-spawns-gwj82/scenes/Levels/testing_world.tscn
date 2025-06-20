@@ -1,19 +1,44 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkhglh7rnk742"]
+[gd_scene load_steps=14 format=3 uid="uid://bkhglh7rnk742"]
 
-[ext_resource type="Script" uid="uid://kio3bc1i7d03" path="res://scripts/testing_world.gd" id="1_1so0q"]
+[ext_resource type="Script" path="res://scripts/testing_world.gd" id="1_1so0q"]
 [ext_resource type="PackedScene" uid="uid://d2wsmsjskfp2c" path="res://scenes/Player/player.tscn" id="1_cuudh"]
 [ext_resource type="PackedScene" uid="uid://do06jyvvfu2mj" path="res://scenes/Hazards/hazard_base.tscn" id="2_cuudh"]
+[ext_resource type="Shader" uid="uid://djne4eg67rdn6" path="res://starrysky.gdshader" id="2_x5q3u"]
 [ext_resource type="PackedScene" uid="uid://w2fdqspnu0o4" path="res://scenes/Items/item_base.tscn" id="3_w28qs"]
-[ext_resource type="PackedScene" uid="uid://cskbp2rhyasqa" path="res://scenes/billboard.tscn" id="4_w28qs"]
+[ext_resource type="PackedScene" path="res://scenes/billboard.tscn" id="4_w28qs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nnsk1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rwgxs"]
 
-[sub_resource type="Environment" id="Environment_nnsk1"]
-background_mode = 3
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2q3q1"]
+shader = ExtResource("2_x5q3u")
+shader_parameter/vertical_sections = 21
+shader_parameter/star_size = 0.08
+shader_parameter/star_falloff = 4.0
+shader_parameter/margin = 0.05
+
+[sub_resource type="Sky" id="Sky_dtoof"]
+sky_material = SubResource("ShaderMaterial_2q3q1")
+
+[sub_resource type="Environment" id="Environment_mdonp"]
+background_mode = 2
+background_energy_multiplier = 0.07
+sky = SubResource("Sky_dtoof")
+fog_mode = 1
+fog_density = 2.8495
+fog_depth_curve = 0.188203
+fog_depth_begin = 3967.8
+fog_depth_end = 3967.8
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.057
+volumetric_fog_albedo = Color(0.996078, 0.811765, 1, 1)
+volumetric_fog_emission = Color(0.426465, 0.350225, 0.512654, 1)
+volumetric_fog_emission_energy = 1.3
+volumetric_fog_anisotropy = -0.22
+volumetric_fog_detail_spread = 0.5
+volumetric_fog_temporal_reprojection_enabled = false
 adjustment_enabled = true
-adjustment_saturation = 0.01
 
 [sub_resource type="BoxMesh" id="BoxMesh_cuudh"]
 
@@ -33,7 +58,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 shape = SubResource("BoxShape3D_rwgxs")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_nnsk1")
+environment = SubResource("Environment_mdonp")
 
 [node name="Player" parent="." node_paths=PackedStringArray("item_counter_label") instance=ExtResource("1_cuudh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18502, 6.80564, -4.13415)
