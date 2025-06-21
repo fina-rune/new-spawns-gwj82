@@ -154,8 +154,6 @@ shape = SubResource("BoxShape3D_mdonp")
 [node name="Player" parent="." node_paths=PackedStringArray("item_counter_label") instance=ExtResource("1_cuudh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18502, 6.80564, -4.13415)
 item_counter_label = NodePath("../InventoryCanvas/InventoryPanel/InventoryLabel")
-speed = 5.0
-air_control = 0.01
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.20491)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://d2wsmsjskfp2c"]
+[gd_scene load_steps=41 format=3 uid="uid://d2wsmsjskfp2c"]
 
 [ext_resource type="Script" uid="uid://c81rfstmsa70v" path="res://scripts/Player/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://4d4hvt0xp3s7" path="res://assets/Player/Idle sheet.png" id="2_wwtew"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://bgrkm7wqjc4va" path="res://scripts/Player/callout_state.gd" id="10_n7rn1"]
 [ext_resource type="Script" uid="uid://d03ind7yaqeka" path="res://scripts/Player/dialogue_state.gd" id="12_jxtnq"]
 [ext_resource type="AudioStream" uid="uid://d1w5arapjpv7i" path="res://assets/Audio/Footsteps/Player sounds walking 1.wav" id="14_tayva"]
+[ext_resource type="AudioStream" uid="uid://qtgkpuj6wii1" path="res://assets/Audio/Player sounds Jump Shwoosh.wav" id="15_wyey8"]
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -519,6 +520,10 @@ state_machine = NodePath("../State Machine")
 [node name="Footsteps" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("14_tayva")
 volume_db = -12.0
+
+[node name="Jump" type="AudioStreamPlayer" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("15_wyey8")
 
 [connection signal="animation_finished" from="AnimationTree" to="State Machine/Landing" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="State Machine/Callout" method="_on_animation_tree_animation_finished"]
