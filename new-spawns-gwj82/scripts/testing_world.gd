@@ -1,9 +1,9 @@
 extends Node3D
 
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
-@onready var player: Player = $Player
 @onready var start: Billboard = $Start
 @onready var end: Billboard = $End
+@onready var player: Player = $Player
 
 var environment: Environment
 var total_distance: float

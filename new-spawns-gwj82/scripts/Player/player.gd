@@ -5,11 +5,14 @@ extends CharacterBody3D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var player_sprite: Sprite3D = $Sprite3D
 @onready var state_machine: StateMachine = $"State Machine"
+@onready var audio_player: AudioStreamPlayer = $Audio/Footsteps
 
 
 @export var item_counter_label: RichTextLabel
 @export var speed: float = 5.0
 @export var air_control: float = 0.01
+
+var sound_files: Array[AudioStream] = []
 
 var direction: float
 
@@ -32,6 +35,15 @@ func _ready() -> void:
 
 	for item: ItemBase in items:
 		item.item_collected.connect(on_item_collected)
+		
+	sound_files = [
+		preload("res://assets/Audio/Footsteps/Player sounds walking 1.wav"),
+		preload("res://assets/Audio/Footsteps/Player sounds walking 2.wav"),
+		preload("res://assets/Audio/Footsteps/Player sounds walking 3.wav"),
+		preload("res://assets/Audio/Footsteps/Player sounds walking 4.wav")
+	]
+	
+	randomize()
 
 func _physics_process(delta: float) -> void:
 	if state_machine.can_character_move():
@@ -72,3 +84,8 @@ func on_item_collected() -> void:
 
 func update_inventory_label() -> void:
 	item_counter_label.text = "%d/%d" % [collected_items, total_items]
+
+func play_random_footstep() -> void:
+	var sound: AudioStream = sound_files[randi() % sound_files.size()]
+	audio_player.stream = sound
+	audio_player.play()
