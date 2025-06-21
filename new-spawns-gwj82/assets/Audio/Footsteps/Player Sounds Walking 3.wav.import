@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bofdmd6nbkyya"
+path="res://.godot/imported/Player Sounds Walking 3.wav-970a6d8e9b2189b17f0210ebba37a66b.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Footsteps/Player Sounds Walking 3.wav"
+dest_files=["res://.godot/imported/Player Sounds Walking 3.wav-970a6d8e9b2189b17f0210ebba37a66b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

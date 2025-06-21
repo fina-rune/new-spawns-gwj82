@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cskbp2rhyasqa"]
-
-[ext_resource type="Texture2D" uid="uid://bbl7y6kr4n3f8" path="res://icon.svg" id="1_c58ef"]
-[ext_resource type="Script" uid="uid://yivdnwhqjrrc" path="res://scripts/billboard.gd" id="2_dsevu"]
-
-[node name="Billboard" type="Sprite3D"]
-texture = ExtResource("1_c58ef")
-script = ExtResource("2_dsevu")

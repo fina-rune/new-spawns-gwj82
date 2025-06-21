@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Control
 
 func _ready() -> void:
 	var stream: AudioStream = preload("res://assets/Audio/NewSpawns-Unseen-level 1 v1 with tail.wav")

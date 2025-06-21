@@ -15,6 +15,7 @@ func physics_update(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("jump"):
 		character.velocity.y += jump_velocity
+		%Jump.play()
 		Transitioned.emit(self, air_state.name)
 		
 	if Input.is_action_just_pressed("callout"):
