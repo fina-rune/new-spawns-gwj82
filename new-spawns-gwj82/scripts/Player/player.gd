@@ -12,7 +12,8 @@ extends CharacterBody3D
 @export var speed: float = 5.0
 @export var air_control: float = 0.01
 
-var sound_files: Array[AudioStream] = []
+var footsteps_files: Array[AudioStream] = []
+var callout_files: Array[AudioStream] = []
 
 var direction: float
 
@@ -36,11 +37,16 @@ func _ready() -> void:
 	for item: ItemBase in items:
 		item.item_collected.connect(on_item_collected)
 		
-	sound_files = [
+	footsteps_files = [
 		preload("res://assets/Audio/Footsteps/Player sounds walking 1.wav"),
 		preload("res://assets/Audio/Footsteps/Player sounds walking 2.wav"),
 		preload("res://assets/Audio/Footsteps/Player sounds walking 3.wav"),
 		preload("res://assets/Audio/Footsteps/Player sounds walking 4.wav")
+	]
+	
+	callout_files = [
+		preload("res://assets/Audio/Callout/Player Sound Hey.wav"),
+		preload("res://assets/Audio/Callout/Player Sound Hey v2.wav")
 	]
 	
 	randomize()
@@ -61,7 +67,7 @@ func _physics_process(delta: float) -> void:
 
 		move_and_slide()
 	
-	$CameraController.position.y = clamp($CameraController.position.y, 0, 1000000)
+	$CameraController.position.y = clamp($CameraController.position.y, -5, 1000000)
 	$CameraController.position = lerp($CameraController.position, position, 0.15)
 	update_animation()
 	update_facing_direction()
@@ -86,6 +92,11 @@ func update_inventory_label() -> void:
 	item_counter_label.text = "%d/%d" % [collected_items, total_items]
 
 func play_random_footstep() -> void:
-	var sound: AudioStream = sound_files[randi() % sound_files.size()]
+	var sound: AudioStream = footsteps_files[randi() % footsteps_files.size()]
+	audio_player.stream = sound
+	audio_player.play()
+	
+func play_random_callout() -> void:
+	var sound: AudioStream = callout_files[randi() % callout_files.size()]
 	audio_player.stream = sound
 	audio_player.play()
