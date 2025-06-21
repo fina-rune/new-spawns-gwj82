@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://boq3mmlpatxur"
+path="res://.godot/imported/Player Sound Hey v2.wav-54b6794a77b5d912901630809325a223.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Callout/Player Sound Hey v2.wav"
+dest_files=["res://.godot/imported/Player Sound Hey v2.wav-54b6794a77b5d912901630809325a223.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

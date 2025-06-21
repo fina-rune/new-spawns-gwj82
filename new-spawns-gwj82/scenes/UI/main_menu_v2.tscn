@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://by4c0cxnu2jay"]
+
+[ext_resource type="Script" uid="uid://cnb324a0ahj5v" path="res://scripts/UI/main_menu.gd" id="1_06018"]
+[ext_resource type="Texture2D" uid="uid://byyw385ewjlia" path="res://assets/UI/Start Screen Art.png" id="1_wxlgm"]
+[ext_resource type="Texture2D" uid="uid://ceaqpwgxq6occ" path="res://assets/UI/Start Screen UI.png" id="2_ionp2"]
+
+[sub_resource type="Theme" id="Theme_ionp2"]
+Button/font_sizes/font_size = 32
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06018")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wxlgm")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="UI Elements" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ionp2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.181264
+anchor_top = 0.199259
+anchor_right = 0.352944
+anchor_bottom = 0.274284
+offset_left = 0.18399
+offset_top = -0.12001
+offset_right = 0.40799
+offset_bottom = 0.264008
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Fractured Hearts"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.431208
+anchor_top = 0.174543
+anchor_right = 0.742868
+anchor_bottom = 0.799716
+offset_left = 0.247955
+offset_top = -0.104004
+offset_right = 0.215942
+offset_bottom = -0.216064
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Play Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ionp2")
+text = "Play"
+
+[node name="Quit Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ionp2")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]

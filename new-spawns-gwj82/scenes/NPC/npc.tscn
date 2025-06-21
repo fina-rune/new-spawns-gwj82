@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cobgu5f6j2dqt"]
+
+[ext_resource type="Script" uid="uid://dl0f3ant6crwf" path="res://scripts/NPC/npc.gd" id="1_0c0is"]
+[ext_resource type="Texture2D" uid="uid://clg1p4n1bcvmq" path="res://assets/NPC/NPC Idle.png" id="1_36vut"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c0is"]
+atlas = ExtResource("1_36vut")
+region = Rect2(0, 0, 222, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwet7"]
+atlas = ExtResource("1_36vut")
+region = Rect2(222, 0, 222, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehwui"]
+atlas = ExtResource("1_36vut")
+region = Rect2(444, 0, 222, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4wbl"]
+atlas = ExtResource("1_36vut")
+region = Rect2(666, 0, 222, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fqau"]
+atlas = ExtResource("1_36vut")
+region = Rect2(888, 0, 222, 195)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aanyv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c0is")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwet7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehwui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4wbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fqau")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_36vut"]
+size = Vector3(1.51929, 1.5481, 1)
+
+[node name="NPC" type="StaticBody3D"]
+script = ExtResource("1_0c0is")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Area3D"]
+sprite_frames = SubResource("SpriteFrames_aanyv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.666539
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0706787, -0.0469971, 0)
+shape = SubResource("BoxShape3D_36vut")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
