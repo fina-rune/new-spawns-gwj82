@@ -26,6 +26,7 @@ var dialogue_index: int = 0
 var callout: bool = false
 var dialogue: bool = false
 var move: bool = false
+var can_move: bool = true
 
 
 func _ready() -> void:
@@ -52,7 +53,7 @@ func _ready() -> void:
 	randomize()
 
 func _physics_process(delta: float) -> void:
-	if state_machine.can_character_move():
+	if state_machine.can_character_move() and can_move:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bkhglh7rnk742"]
+[gd_scene load_steps=22 format=3 uid="uid://bkhglh7rnk742"]
 
 [ext_resource type="Script" uid="uid://kio3bc1i7d03" path="res://scripts/world.gd" id="1_dq7cu"]
 [ext_resource type="Shader" uid="uid://djne4eg67rdn6" path="res://starrysky.gdshader" id="2_6dmkm"]
@@ -51,6 +51,9 @@ size = Vector3(1.17189, 0.967468, 0.68531)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mdonp"]
 size = Vector3(0.742676, 1, 0.759308)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4p7o6"]
+size = Vector3(2.61328, 1, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_mdonp"]
 
@@ -222,8 +225,23 @@ vertical_alignment = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.89742, 1.6847, -4.13415)
 item = NodePath("../Item2")
 
-[node name="Sprite3D" type="Sprite3D" parent="HazardBase"]
+[node name="Sprite3D2" type="Sprite3D" parent="HazardBase"]
 texture = ExtResource("8_dq7cu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HazardBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0195313, 0, 0)
+shape = SubResource("BoxShape3D_4p7o6")
+
+[node name="HazardBase2" parent="." node_paths=PackedStringArray("item") instance=ExtResource("7_scxyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9533, -5.03474, -4.13415)
+item = NodePath("../Item3")
+
+[node name="Sprite3D2" type="Sprite3D" parent="HazardBase2"]
+texture = ExtResource("8_dq7cu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HazardBase2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0195313, 0, 0)
+shape = SubResource("BoxShape3D_4p7o6")
 
 [node name="Item2" parent="." node_paths=PackedStringArray("next_item") instance=ExtResource("8_j1055")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64292, 1.62632, -4.13415)
@@ -249,7 +267,7 @@ texture = ExtResource("12_4p7o6")
 
 [node name="World Edge" parent="." instance=ExtResource("7_scxyy")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World Edge"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="World Edge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.2905, 0)
 shape = SubResource("WorldBoundaryShape3D_mdonp")
 
