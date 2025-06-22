@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs0jyed7kdpik"]
+
+[ext_resource type="QuadMesh" uid="uid://cvl6i0hj2a4py" path="res://assets/Grass/grass_mesh_new.tres" id="1_ux8ee"]
+
+[node name="Grass" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("1_ux8ee")
