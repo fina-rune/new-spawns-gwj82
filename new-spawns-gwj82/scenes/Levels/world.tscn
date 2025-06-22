@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bkhglh7rnk742"]
+[gd_scene load_steps=21 format=3 uid="uid://bkhglh7rnk742"]
 
 [ext_resource type="Script" uid="uid://kio3bc1i7d03" path="res://scripts/world.gd" id="1_dq7cu"]
 [ext_resource type="Shader" uid="uid://djne4eg67rdn6" path="res://starrysky.gdshader" id="2_6dmkm"]
@@ -51,16 +51,6 @@ size = Vector3(1.17189, 0.967468, 0.68531)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mdonp"]
 size = Vector3(0.742676, 1, 0.759308)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4p7o6"]
-size = Vector3(2.21948, 1.26291, 1.05945)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_v41dc"]
-size = Vector3(0.748535, 1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ahnf6"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_scxyy"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_mdonp"]
 
@@ -235,10 +225,6 @@ item = NodePath("../Item2")
 [node name="Sprite3D" type="Sprite3D" parent="HazardBase"]
 texture = ExtResource("8_dq7cu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HazardBase"]
-transform = Transform3D(1, 0, 0, 0, 1.06199, 0, 0, 0, 1.14771, 0.0985107, 0.139603, 0.0587726)
-shape = SubResource("BoxShape3D_4p7o6")
-
 [node name="Item2" parent="." node_paths=PackedStringArray("next_item") instance=ExtResource("8_j1055")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64292, 1.62632, -4.13415)
 visible = false
@@ -247,10 +233,6 @@ next_item = NodePath("../Item3")
 [node name="Sprite3D" type="Sprite3D" parent="Item2"]
 texture = ExtResource("10_6dmkm")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Item2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0158691, 0, 0)
-shape = SubResource("BoxShape3D_v41dc")
-
 [node name="Item1" parent="." node_paths=PackedStringArray("next_item") instance=ExtResource("8_j1055")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46061, -2.27753, -4.13415)
 next_item = NodePath("../Item2")
@@ -258,18 +240,12 @@ next_item = NodePath("../Item2")
 [node name="Sprite3D" type="Sprite3D" parent="Item1"]
 texture = ExtResource("11_v5b5k")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Item1"]
-shape = SubResource("BoxShape3D_ahnf6")
-
 [node name="Item3" parent="." instance=ExtResource("8_j1055")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0071, -1.01088, -4.13415)
 visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="Item3"]
 texture = ExtResource("12_4p7o6")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Item3"]
-shape = SubResource("BoxShape3D_scxyy")
 
 [node name="World Edge" parent="." instance=ExtResource("7_scxyy")]
 
