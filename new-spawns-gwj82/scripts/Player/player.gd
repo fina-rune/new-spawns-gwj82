@@ -39,15 +39,15 @@ func _ready() -> void:
 		item.item_collected.connect(on_item_collected)
 		
 	footsteps_files = [
-		preload("res://assets/Audio/Footsteps/Player sounds walking 1.wav"),
-		preload("res://assets/Audio/Footsteps/Player sounds walking 2.wav"),
-		preload("res://assets/Audio/Footsteps/Player sounds walking 3.wav"),
-		preload("res://assets/Audio/Footsteps/Player sounds walking 4.wav")
+		load("res://assets/Audio/Footsteps/Player sounds walking 1.wav"),
+		load("res://assets/Audio/Footsteps/Player sounds walking 2.wav"),
+		load("res://assets/Audio/Footsteps/Player sounds walking 3.wav"),
+		load("res://assets/Audio/Footsteps/Player sounds walking 4.wav")
 	]
 	
 	callout_files = [
-		preload("res://assets/Audio/Callout/Player Sound Hey.wav"),
-		preload("res://assets/Audio/Callout/Player Sound Hey v2.wav")
+		load("res://assets/Audio/Callout/Player Sound Hey.wav"),
+		load("res://assets/Audio/Callout/Player Sound Hey v2.wav")
 	]
 	
 	randomize()
