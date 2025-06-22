@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d2wsmsjskfp2c"]
+[gd_scene load_steps=41 format=3 uid="uid://d2wsmsjskfp2c"]
 
 [ext_resource type="Script" uid="uid://c81rfstmsa70v" path="res://scripts/Player/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://4d4hvt0xp3s7" path="res://assets/Player/Idle sheet.png" id="2_wwtew"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://cj0140y643jkg" path="res://scripts/Player/air_state.gd" id="5_hvfru"]
 [ext_resource type="Texture2D" uid="uid://woh70ybot5ck" path="res://assets/Player/Player Callout.png" id="6_7tfl1"]
 [ext_resource type="Script" uid="uid://bxgadqxrxt01x" path="res://scripts/Player/landing_state.gd" id="6_hvfru"]
-[ext_resource type="Script" uid="uid://dbea2ta3ssmai" path="res://scripts/Player/state_debug_label.gd" id="7_a06cl"]
 [ext_resource type="Script" uid="uid://bgrkm7wqjc4va" path="res://scripts/Player/callout_state.gd" id="10_n7rn1"]
 [ext_resource type="Script" uid="uid://d03ind7yaqeka" path="res://scripts/Player/dialogue_state.gd" id="12_jxtnq"]
 [ext_resource type="AudioStream" uid="uid://d1w5arapjpv7i" path="res://assets/Audio/Footsteps/Player sounds walking 1.wav" id="14_tayva"]
@@ -516,18 +515,6 @@ can_move = false
 script = ExtResource("12_jxtnq")
 ground_state = NodePath("../Ground")
 can_move = false
-
-[node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -22.5
-offset_right = 22.5
-offset_bottom = 23.0
-grow_horizontal = 2
-text = "State:"
-script = ExtResource("7_a06cl")
-state_machine = NodePath("../State Machine")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 
