@@ -1,2 +1,6 @@
-I know you are suffering alone. I want to be there for you!
-Go away! I don't want to disappoint anyone anymore.
+join player left
+player: I know you are suffering alone. I want to be there for you!
+leave player
+join npc (shadow) left
+npc (shadow): Go away! I don't want to disappoint anyone anymore.
+leave npc

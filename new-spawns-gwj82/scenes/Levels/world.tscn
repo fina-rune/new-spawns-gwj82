@@ -223,6 +223,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0071, -1.01088, -4.13415)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ItemBase3"]
 mesh = SubResource("CylinderMesh_r76f3")
 
+[node name="ItemBase4" parent="." instance=ExtResource("8_j1055")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6112, -4.92899, -4.13415)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ItemBase4"]
+mesh = SubResource("CylinderMesh_r76f3")
+
 [node name="World Edge" parent="." instance=ExtResource("7_scxyy")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World Edge"]
