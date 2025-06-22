@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dsbf842o4npjt"
-path="res://.godot/imported/mountains.blend-d4784d08c8910e334e7cea1166d3552f.scn"
+uid="uid://rhmive45v4ok"
+path="res://.godot/imported/mountains.blend-e2bb8769c0759533cb1a4c74a45ab537.scn"
 
 [deps]
 
-source_file="res://assets/mountains.blend"
-dest_files=["res://.godot/imported/mountains.blend-d4784d08c8910e334e7cea1166d3552f.scn"]
+source_file="res://assets/Mountains/mountains.blend"
+dest_files=["res://.godot/imported/mountains.blend-e2bb8769c0759533cb1a4c74a45ab537.scn"]
 
 [params]
 
