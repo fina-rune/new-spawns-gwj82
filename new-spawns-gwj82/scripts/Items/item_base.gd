@@ -7,6 +7,7 @@ extends Area3D
 @export var amplitude: float = 0.1
 @export var floating_speed: float = 3.0
 @export var collision_shape_scale: Vector3 = Vector3.ONE
+@export var next_item: ItemBase
 
 var running_time: float = 0.0
 var previous_y_offset: float = 0.0
@@ -50,3 +51,5 @@ func _on_body_exited(body: Node3D) -> void:
 
 func _exit_tree() -> void:
 	SignalBus.item_collected.emit(self)
+	if next_item:
+		next_item.visible = true

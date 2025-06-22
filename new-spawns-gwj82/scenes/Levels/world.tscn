@@ -220,27 +220,31 @@ vertical_alignment = 1
 
 [node name="HazardBase" parent="." node_paths=PackedStringArray("item") instance=ExtResource("7_scxyy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.89742, 1.6847, -4.13415)
-item = NodePath("../ItemBase")
+item = NodePath("../Item2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="HazardBase"]
 mesh = SubResource("BoxMesh_cuudh")
 
-[node name="ItemBase" parent="." instance=ExtResource("8_j1055")]
+[node name="Item2" parent="." node_paths=PackedStringArray("next_item") instance=ExtResource("8_j1055")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64292, 1.62632, -4.13415)
+visible = false
+next_item = NodePath("../Item3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ItemBase"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Item2"]
 mesh = SubResource("CylinderMesh_r76f3")
 
-[node name="ItemBase2" parent="." instance=ExtResource("8_j1055")]
+[node name="Item1" parent="." node_paths=PackedStringArray("next_item") instance=ExtResource("8_j1055")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46061, -2.27753, -4.13415)
+next_item = NodePath("../Item2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ItemBase2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Item1"]
 mesh = SubResource("CylinderMesh_r76f3")
 
-[node name="ItemBase3" parent="." instance=ExtResource("8_j1055")]
+[node name="Item3" parent="." instance=ExtResource("8_j1055")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0071, -1.01088, -4.13415)
+visible = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ItemBase3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Item3"]
 mesh = SubResource("CylinderMesh_r76f3")
 
 [node name="World Edge" parent="." instance=ExtResource("7_scxyy")]
