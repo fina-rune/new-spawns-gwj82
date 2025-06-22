@@ -1,7 +1,7 @@
 extends Control
 
 func _ready() -> void:
-	var stream: AudioStream = preload("res://assets/Audio/NewSpawns-Unseen-level 1 v1 with tail.wav")
+	var stream: AudioStream = preload("res://assets/Audio/Unseen Level 3 Master v1.wav")
 	MusicManager.play_music(stream)
 
 func _on_quit_button_pressed() -> void:
