@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bkhglh7rnk742"]
+[gd_scene load_steps=21 format=3 uid="uid://bkhglh7rnk742"]
 
 [ext_resource type="Script" uid="uid://kio3bc1i7d03" path="res://scripts/world.gd" id="1_dq7cu"]
 [ext_resource type="Shader" uid="uid://djne4eg67rdn6" path="res://starrysky.gdshader" id="2_6dmkm"]
@@ -7,8 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://c6tuyem02gsw" path="res://assets/Platforms/Platform 2.glb" id="5_v41dc"]
 [ext_resource type="PackedScene" uid="uid://d2wsmsjskfp2c" path="res://scenes/Player/player.tscn" id="6_ahnf6"]
 [ext_resource type="PackedScene" uid="uid://do06jyvvfu2mj" path="res://scenes/Hazards/hazard_base.tscn" id="7_scxyy"]
+[ext_resource type="Texture2D" uid="uid://cisbbrw2up36h" path="res://assets/Items_Hazards/vines.png" id="8_dq7cu"]
 [ext_resource type="PackedScene" uid="uid://w2fdqspnu0o4" path="res://scenes/Items/item_base.tscn" id="8_j1055"]
 [ext_resource type="PackedScene" uid="uid://cobgu5f6j2dqt" path="res://scenes/NPC/npc.tscn" id="10_0q40x"]
+[ext_resource type="Texture2D" uid="uid://yk7x023g351i" path="res://assets/Items_Hazards/heartpiece2.png" id="10_6dmkm"]
+[ext_resource type="Texture2D" uid="uid://dmdrqpj32slsd" path="res://assets/Items_Hazards/heartpiece1.png" id="11_v5b5k"]
+[ext_resource type="Texture2D" uid="uid://bvbcj7d0hlkab" path="res://assets/Items_Hazards/heartpiece3.png" id="12_4p7o6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2q3q1"]
 shader = ExtResource("2_6dmkm")
@@ -47,10 +51,6 @@ size = Vector3(1.17189, 0.967468, 0.68531)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mdonp"]
 size = Vector3(0.742676, 1, 0.759308)
-
-[sub_resource type="BoxMesh" id="BoxMesh_cuudh"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_r76f3"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_mdonp"]
 
@@ -222,30 +222,30 @@ vertical_alignment = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.89742, 1.6847, -4.13415)
 item = NodePath("../Item2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HazardBase"]
-mesh = SubResource("BoxMesh_cuudh")
+[node name="Sprite3D" type="Sprite3D" parent="HazardBase"]
+texture = ExtResource("8_dq7cu")
 
 [node name="Item2" parent="." node_paths=PackedStringArray("next_item") instance=ExtResource("8_j1055")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64292, 1.62632, -4.13415)
 visible = false
 next_item = NodePath("../Item3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Item2"]
-mesh = SubResource("CylinderMesh_r76f3")
+[node name="Sprite3D" type="Sprite3D" parent="Item2"]
+texture = ExtResource("10_6dmkm")
 
 [node name="Item1" parent="." node_paths=PackedStringArray("next_item") instance=ExtResource("8_j1055")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46061, -2.27753, -4.13415)
 next_item = NodePath("../Item2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Item1"]
-mesh = SubResource("CylinderMesh_r76f3")
+[node name="Sprite3D" type="Sprite3D" parent="Item1"]
+texture = ExtResource("11_v5b5k")
 
 [node name="Item3" parent="." instance=ExtResource("8_j1055")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0071, -1.01088, -4.13415)
 visible = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Item3"]
-mesh = SubResource("CylinderMesh_r76f3")
+[node name="Sprite3D" type="Sprite3D" parent="Item3"]
+texture = ExtResource("12_4p7o6")
 
 [node name="World Edge" parent="." instance=ExtResource("7_scxyy")]
 
