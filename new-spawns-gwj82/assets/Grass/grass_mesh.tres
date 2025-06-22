@@ -1,6 +1,0 @@
-[gd_resource type="PlaneMesh" load_steps=2 format=3 uid="uid://d23c1buq8jbje"]
-
-[ext_resource type="Material" uid="uid://dj0xais2cqpfn" path="res://assets/Grass/grassmaterial.tres" id="1_f2pcb"]
-
-[resource]
-material = ExtResource("1_f2pcb")
